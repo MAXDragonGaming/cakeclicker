@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cake Clicker</title>
+		<style>
+			body {
+				background-color: gray;
+			}
+			.customButton {
+				width: 100px;
+				background-color: white;
+				text-align: center;
+				padding: 10px;
+				border-radius: 20px;
+				border: 2px black solid;
+				cursor: pointer;
+				user-select: none;
+				font-size: 20px;
+				font-weight: bold;
+				color: lime;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Cake Clicker</h1>
+		<p>0 cakes</p>
+		<div class="customButton" onclick="clickFunction(1)">+1</div>
+		<div class="customButton" onclick="autoFunction()">automatic cakes</div>
+		<script>
+			var cakes = 0;
+			function clickFunction(amount) {
+				if (cakes + amount < 0) {
+					amount = 0;
+				}
+				cakes = cakes + amount;
+				document.querySelector("p").textContent = cakes + " cakes";
+			}
+			function autoFunction() {
+				if (cakes >= 50) {
+					cakes = cakes - 50;
+					setInterval("clickFunction(1)", 1000);//miliseconds
+			}
+
+		</script>
+	</body>
+</html>
